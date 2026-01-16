@@ -1,0 +1,23 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.riscarTarefa {
+    text-decoration: line-through;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e11d48; /* vermelho */
+  border-radius: 999px; /* pill */
+  vertical-align: middle;
+}
