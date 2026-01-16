@@ -50,6 +50,7 @@ irCompras.marcarConcluida();
 let listaTarefas: Tarefa[] = [irCompras, estudar]; 
 
 console.log("o array é",listaTarefas)
+console.log("olá")
 
 addTaskstoHtml(); 
 

@@ -28,6 +28,7 @@ var estudar = new Tarefa(2, "estudar programação");
 irCompras.marcarConcluida();
 var listaTarefas = [irCompras, estudar];
 console.log("o array é", listaTarefas);
+console.log("olá");
 addTaskstoHtml();
 function addTaskstoHtml() {
     atualizarBadge();
