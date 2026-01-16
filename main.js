@@ -25,6 +25,7 @@ var listaTarefas = [irCompras, estudar];
 var inputTarefa = document.getElementById("addTarefa");
 renderTasks();
 createBtnAddTask();
+getBtnSortAToZ();
 function createSingleTask(task) {
     var elemLista = document.createElement("li");
     elemLista.textContent = task.titulo;
@@ -128,4 +129,12 @@ function atualizarBadge() {
     var valorNovoDoBadge = contarTarefasNaoCumpridas();
     var span = document.querySelector("#badge");
     span.textContent = String(valorNovoDoBadge);
+}
+function getBtnSortAToZ() {
+    var btnSortAToZ = document.getElementById("btnSort");
+    btnSortAToZ.addEventListener("click", function () { return sortAToZ(listaTarefas); });
+}
+function sortAToZ(array) {
+    listaTarefas = array.sort(function (a, b) { return a.titulo.localeCompare(b.titulo); });
+    renderTasks();
 }

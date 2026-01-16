@@ -47,6 +47,7 @@ let inputTarefa = document.getElementById("addTarefa") as HTMLInputElement;
 
 renderTasks(); 
 createBtnAddTask(); 
+getBtnSortAToZ (); 
 
 function createSingleTask(task: Tarefa) {
 
@@ -213,3 +214,16 @@ function atualizarBadge() {
     span.textContent = String(valorNovoDoBadge); 
 }
 
+function getBtnSortAToZ () {
+    let btnSortAToZ = document.getElementById("btnSort") as HTMLButtonElement;
+
+    btnSortAToZ.addEventListener("click", () => sortAToZ(listaTarefas)); 
+}
+
+
+function sortAToZ(array: Tarefa[]) {
+
+    listaTarefas = array.sort((a,b) => a.titulo.localeCompare(b.titulo)); 
+
+    renderTasks(); 
+}

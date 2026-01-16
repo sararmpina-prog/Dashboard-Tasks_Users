@@ -24,7 +24,8 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: 75px; 
+  align-items: center;
+  gap: 55px; 
 }
 
 .taskList {
