@@ -23,11 +23,26 @@
     </section>
 
     <section>
-      <button id="">Remove all</button>
+      <button id="btnRemoveCompletedTasks">Remove finished tasks</button>
       <button id="btnSort">Sort A-Z</button>
-      <button id="">Categories</button>
+      <button id="">Categories
+      </button>
+       <select name="categories" id="categories" class> 
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="studies">Studies</option>
+        </select>
     </section>
-
+        <div>
+          <label
+          for="pesquisaTarefas"
+          type="text"
+          placeholder="Find task here"
+          aria-label="barra de pesquisa"
+        ></label>
+        <input id="searchTask" />
+        <button id="search">🔍</button>
+        </div>
     <section>
       <ul id="taskList" class="taskList"></ul>
     </section>

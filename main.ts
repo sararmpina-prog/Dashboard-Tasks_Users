@@ -7,7 +7,6 @@ interface TarefaInterface {
 }
 
 
-
 class Tarefa implements TarefaInterface {
     id: number;
     titulo: string; 
@@ -45,9 +44,11 @@ let listaTarefas: Tarefa[] = [irCompras, estudar];
 let inputTarefa = document.getElementById("addTarefa") as HTMLInputElement; 
 
 
-renderTasks(); 
+renderTasks(listaTarefas); 
 createBtnAddTask(); 
 getBtnSortAToZ (); 
+createSearchTask (); 
+createBtnRemovedFinishedTasks(); 
 
 function createSingleTask(task: Tarefa) {
 
@@ -67,15 +68,15 @@ function createSingleTask(task: Tarefa) {
     return elemLista; 
 }
 
-function renderTasks() {
+function renderTasks(list: Tarefa[]) {
     atualizarBadge();
 
     let lista = document.querySelector("#taskList") as HTMLUListElement; 
 
     lista.innerHTML = ""; 
 
-    for (let i=0;  i<listaTarefas.length; i++) {
-        lista.appendChild(createSingleTask(listaTarefas[i]));   
+    for (let i=0;  i<list.length; i++) {
+        lista.appendChild(createSingleTask(list[i]));   
     }
 }
 
@@ -94,7 +95,7 @@ function removeTask (identificador: number) {
     listaTarefas = listaSemTarefa;
    
     
-    renderTasks(); 
+    renderTasks(listaTarefas); 
 }
 
 
@@ -118,7 +119,7 @@ function identifyTaskChecked(numId: number) {
   } else {
     tarefa.concluida = true; 
   }
-  renderTasks(); 
+  renderTasks(listaTarefas); 
 }
 
 function createBtnEdit (li: HTMLLIElement, task: Tarefa) {
@@ -159,7 +160,7 @@ function createBtnCancel () {
 
     btnCancelar.textContent = "Cancel"; 
 
-     btnCancelar.addEventListener("click", () => renderTasks()); 
+     btnCancelar.addEventListener("click", () => renderTasks(listaTarefas)); 
 
     return btnCancelar; 
 }
@@ -173,7 +174,7 @@ function changeTask (tagInput: HTMLInputElement, numId: number) {
 
     arrayTemporario[0].titulo = novoTitulo;
 
-    renderTasks(); 
+    renderTasks(listaTarefas); 
 }
 
 function createBtnAddTask() {
@@ -191,7 +192,7 @@ function addToTaskList () {
     
     inputTarefa.value = ""; 
 
-    renderTasks(); 
+    renderTasks(listaTarefas); 
 }
 
 
@@ -225,5 +226,39 @@ function sortAToZ(array: Tarefa[]) {
 
     listaTarefas = array.sort((a,b) => a.titulo.localeCompare(b.titulo)); 
 
-    renderTasks(); 
+    renderTasks(listaTarefas); 
+}
+
+function createSearchTask () {
+    let inputBar = document.getElementById("searchTask") as HTMLInputElement;
+
+
+    inputBar.addEventListener("input", () => filterTask(inputBar.value)); 
+}
+
+function filterTask(searchedWord: string) {
+
+let listaTasksSearched: Tarefa[] = []; 
+
+  for (let i=0; i < listaTarefas.length; i++) {
+    let palavraMagica = (listaTarefas[i].titulo).toLowerCase().includes(searchedWord); 
+      if (palavraMagica) {
+        listaTasksSearched.push(listaTarefas[i]); 
+      }
+  }
+
+  renderTasks(listaTasksSearched); 
+}
+
+function createBtnRemovedFinishedTasks () {
+    let btnRemoveFinishedtasks = document.getElementById("btnRemoveCompletedTasks") as HTMLButtonElement;
+
+    btnRemoveFinishedtasks.addEventListener("click", () => filterCompletedTasks()); 
+}
+
+function filterCompletedTasks() {
+    
+    let listaTarefasPorFazer = listaTarefas.filter(tarefa => tarefa.concluida == false); 
+
+    renderTasks(listaTarefasPorFazer); 
 }
