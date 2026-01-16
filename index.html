@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Task Manager</title>
+    <script src="main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
      <link
       rel="stylesheet"
@@ -9,15 +10,22 @@
     />
   </head>
   <body>
-    <h1>Gestor de Tarefas <span id="badge" class="badge">0</span></h1>
-    <div id="output"></div>
 
+    <header>
+       <h1>Tasks Dashboard <span id="badge" class="badge">0</span></h1>
+    </header>
 
-    <input id="addTarefa" type="text" placeholder="Nova tarefa" />
-    <button id="addTask">Adicionar tarefa</button>
-    <ul id="taskList"></ul>
-  
+   <main>
 
-    <script src="main.js"></script>
+    <section class="motorPesquisa">
+      <input id="addTarefa" type="text" placeholder="New task" />
+    <button id="addTask">Add task</button>
+    </section>
+
+    <section>
+      <ul id="taskList" class="taskList"></ul>
+    </section>
+
+   </main>
   </body>
 </html>

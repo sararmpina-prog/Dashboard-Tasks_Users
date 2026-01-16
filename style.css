@@ -12,9 +12,27 @@ body {
   margin: 0; 
   padding: 0;
   line-height: 1.2;
-  gap: 12px; 
+  gap: 50px; 
 }
 
+
+.motorPesquisa {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 75px; 
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; 
+  list-style: none;
+}
 
 button {
   margin-left: 5px;
