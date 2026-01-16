@@ -7,21 +7,20 @@ var Tarefa = /** @class */ (function () {
     Tarefa.prototype.marcarConcluida = function () {
         this.concluida = true;
         var dataConclusao = new Date();
-        var anoConclusao = dataConclusao.getFullYear();
         var mesConclusao = dataConclusao.getMonth() + 1;
         var diaConclusao = dataConclusao.getDate();
         var horaConclusao = dataConclusao.getHours();
         var minConclusao = dataConclusao.getMinutes();
-        var stringDataConclusao = String(anoConclusao) + String(mesConclusao) + String(diaConclusao) + String(horaConclusao);
-        return;
+        var stringDataConclusao = "Concluída em: " + String(diaConclusao) + "/" + String(mesConclusao) + " " + String(horaConclusao) + ":" + String(minConclusao);
+        return stringDataConclusao;
     };
     Tarefa.prototype.marcarNaoConcluida = function () {
         this.concluida = false;
     };
     return Tarefa;
 }());
-var irCompras = new Tarefa(1, "ir às compras");
-var estudar = new Tarefa(2, "estudar programação");
+var irCompras = new Tarefa(1, "Ir às compras");
+var estudar = new Tarefa(2, "Estudar programação");
 var listaTarefas = [irCompras, estudar];
 var inputTarefa = document.getElementById("addTarefa");
 renderTasks();
@@ -31,8 +30,8 @@ function createSingleTask(task) {
     elemLista.textContent = task.titulo;
     if (task.concluida == true) {
         elemLista.classList.add("riscarTarefa");
-        // let dataConclusao = listaTarefas[i].marcarConcluida(); 
-        // elemLista.textContent = listaTarefas[i].titulo + " " + String(dataConclusao)
+        var dataConclusao = task.marcarConcluida();
+        elemLista.textContent = task.titulo + " " + String(dataConclusao);
     }
     elemLista.appendChild(createBtnRemove(task));
     elemLista.appendChild(createBtnEdit(elemLista, task));

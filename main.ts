@@ -12,6 +12,7 @@ class Tarefa implements TarefaInterface {
     id: number;
     titulo: string; 
     concluida: boolean = false; 
+    dataConclusao?: Date; 
 
     constructor (id: number, titulo: string) {
         this.id = id; 
@@ -21,13 +22,12 @@ class Tarefa implements TarefaInterface {
     marcarConcluida () {
         this.concluida =  true; 
         let dataConclusao = new Date();
-        let anoConclusao = dataConclusao.getFullYear(); 
         let mesConclusao = dataConclusao.getMonth() + 1; 
         let diaConclusao = dataConclusao.getDate(); 
         let horaConclusao = dataConclusao.getHours(); 
         let minConclusao = dataConclusao.getMinutes(); 
-        let stringDataConclusao = String(anoConclusao) + String(mesConclusao) + String(diaConclusao) + String(horaConclusao)
-        return  
+        let stringDataConclusao = "Concluída em: " + String(diaConclusao) + "/" + String(mesConclusao) + " " + String(horaConclusao) + ":" +String(minConclusao)
+        return stringDataConclusao; 
     }
    
     marcarNaoConcluida() {
@@ -37,12 +37,13 @@ class Tarefa implements TarefaInterface {
 
 
 
-let irCompras = new Tarefa (1, "ir às compras")
-let estudar = new Tarefa (2, "estudar programação")
+let irCompras = new Tarefa (1, "Ir às compras")
+let estudar = new Tarefa (2, "Estudar programação")
 
 
 let listaTarefas: Tarefa[] = [irCompras, estudar]; 
 let inputTarefa = document.getElementById("addTarefa") as HTMLInputElement; 
+
 
 renderTasks(); 
 createBtnAddTask(); 
@@ -54,8 +55,8 @@ function createSingleTask(task: Tarefa) {
 
         if (task.concluida == true) {
             elemLista.classList.add("riscarTarefa"); 
-            // let dataConclusao = listaTarefas[i].marcarConcluida(); 
-            // elemLista.textContent = listaTarefas[i].titulo + " " + String(dataConclusao)
+            let dataConclusao = task.marcarConcluida(); 
+            elemLista.textContent = task.titulo + " " + String(dataConclusao)
         } 
 
     elemLista.appendChild(createBtnRemove(task)); 
