@@ -103,7 +103,9 @@ function changeTask(tagInput, numId) {
     let novoTitulo = tagInput.value;
     let arrayTemporario = listaTarefas.filter(objeto => objeto.id == numId);
     console.log(arrayTemporario);
-    arrayTemporario[0].titulo = novoTitulo;
+    if (novoTitulo) {
+        arrayTemporario[0].titulo = novoTitulo;
+    }
     renderTasks(listaTarefas);
 }
 function createBtnAddTask() {
@@ -112,8 +114,15 @@ function createBtnAddTask() {
 }
 function addToTaskList() {
     let tarefaIntroduzida = inputTarefa.value;
-    let novaTarefa = new Tarefa(Date.now(), tarefaIntroduzida);
-    listaTarefas.push(novaTarefa);
+    let span = document.getElementById("asterisco");
+    if (tarefaIntroduzida) {
+        let novaTarefa = new Tarefa(Date.now(), tarefaIntroduzida);
+        listaTarefas.push(novaTarefa);
+    }
+    // } else {
+    //     inputTarefa.setAttribute("placeholder","You haven't introduced a task" )  
+    //     span.classList.add("displaySpan"); 
+    // }
     inputTarefa.value = "";
     renderTasks(listaTarefas);
 }

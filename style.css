@@ -19,6 +19,15 @@ body {
 .motorPesquisa {
   display: flex;
   justify-content: center;
+  gap: 5px; 
+}
+
+.motorPesquisa > span {
+  color: #fff;
+}
+
+.displaySpan {
+  color: #e11d48;
 }
 
 main {

@@ -78,6 +78,7 @@ function renderTasks(list: Tarefa[]) {
     for (let i=0;  i<list.length; i++) {
         lista.appendChild(createSingleTask(list[i]));   
     }
+
 }
 
 function createBtnRemove(task: Tarefa) {
@@ -122,6 +123,8 @@ function identifyTaskChecked(numId: number) {
   renderTasks(listaTarefas); 
 }
 
+
+
 function createBtnEdit (li: HTMLLIElement, task: Tarefa) {
 
     let btnEdicao = document.createElement("button") as HTMLButtonElement;
@@ -141,8 +144,6 @@ function addInput(tagLi: HTMLLIElement, title: string, identificador: number) {
 
     let btnConclusao = document.createElement("button") as HTMLButtonElement; 
     btnConclusao.textContent = "Update"; 
-
-   
 
     tagLi.innerHTML = ""; 
     tagLi.appendChild(inputNovaTarefa); 
@@ -172,8 +173,10 @@ function changeTask (tagInput: HTMLInputElement, numId: number) {
     let arrayTemporario = listaTarefas.filter(objeto => objeto.id == numId)
     console.log(arrayTemporario); 
 
-    arrayTemporario[0].titulo = novoTitulo;
-
+    if (novoTitulo) {
+       arrayTemporario[0].titulo = novoTitulo; 
+    }
+    
     renderTasks(listaTarefas); 
 }
 
@@ -186,12 +189,18 @@ function createBtnAddTask() {
 
 function addToTaskList () {
     let tarefaIntroduzida: string = inputTarefa.value; 
-    let novaTarefa = new Tarefa (Date.now(), tarefaIntroduzida)
-
-    listaTarefas.push(novaTarefa); 
+    let span = document.getElementById("asterisco") as HTMLSpanElement; 
     
+    if (tarefaIntroduzida) {
+        let novaTarefa = new Tarefa (Date.now(), tarefaIntroduzida)
+        listaTarefas.push(novaTarefa); 
+    }
+    // } else {
+    //     inputTarefa.setAttribute("placeholder","You haven't introduced a task" )  
+    //     span.classList.add("displaySpan"); 
+    // }
+  
     inputTarefa.value = ""; 
-
     renderTasks(listaTarefas); 
 }
 
