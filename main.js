@@ -22,10 +22,15 @@ class Tarefa {
 let listaTarefas = [];
 let inputTarefa = document.getElementById("addTarefa");
 let tarefasIniciais = [
-    { id: 1, titulo: "Dormir", categoria: "Personal" },
-    { id: 2, titulo: "Ir ao jantar da Bia", categoria: "Personal" },
+    { id: 1, titulo: "Rever finanças", categoria: "Personal" },
+    { id: 2, titulo: "Ir ao jantar de anos da Bia", categoria: "Personal" },
     { id: 3, titulo: "Estudar programação", categoria: "Studies" },
     { id: 4, titulo: "Trabalho Ética", categoria: "Work" },
+    { id: 5, titulo: "Entregar exercicios mestrado", categoria: "Work" },
+    { id: 6, titulo: "Compras para casa", categoria: "Personal" },
+    { id: 7, titulo: "Prenda anos da mãe", categoria: "Personal" },
+    { id: 8, titulo: "Adcionar funcionalidades ao projeto", categoria: "Studies" },
+    { id: 9, titulo: "Juntar dashboards no mesmo ficheiro", categoria: "Studies" },
 ];
 loadInitialTasks();
 createBtnAddTask();

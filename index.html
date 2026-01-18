@@ -13,13 +13,12 @@
   <body>
 
     <header>
-       <h1>Tasks Dashboard <span id="badge" class="badge">0</span></h1>
+       <h1>TASKS DASHBOARD <span id="badge" class="badge" title="Total number of tasks" alt="Display of total number of tasks">0</span></h1>
     </header>
 
    <main>
 
     <section class="motorPesquisa" id="sectionAddTask">
-        <span aria-hidden="true" id="asterisco">*</span>
         <input id="addTarefa" type="text" placeholder="New task"/>
          <select name="categories" id="categories" class> 
           <option id="work" value="Work">Work</option>
@@ -29,23 +28,24 @@
         <button id="addTask">Add task</button>
     </section>
    
-    <section>
+    <section class="filterSection">
       <button id="btnRemoveCompletedTasks">Remove finished tasks</button>
       <button id="btnSort">Sort A-Z</button>
-      <button id="">Categories
-      </button>
+      <button id="">Categories</button>
     </section>
-        <div>
-          <label
-          for="pesquisaTarefas"
-          type="text"
-          placeholder="Find task here"
-          aria-label="barra de pesquisa"
-        ></label>
-        <input id="searchTask" />
-        <button id="search">🔍</button>
-        </div>
-    <section class="container">
+
+    <div>
+      <label
+      for="pesquisaTarefas"
+      type="text"
+      placeholder="Find task here"
+      aria-label="barra de pesquisa para filtrar tarefas"
+    ></label>
+      <input id="searchTask"/>
+      <button id="search">🔍</button>
+    </div>
+
+    <section>
       <ul id="taskList" class="taskList"></ul>
     </section>
 

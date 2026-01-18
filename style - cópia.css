@@ -1,0 +1,77 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0; 
+  padding: 0;
+  line-height: 1.2;
+  gap: 50px; 
+}
+
+
+
+.motorPesquisa {
+  display: flex;
+  justify-content: center;
+  gap: 5px; 
+}
+
+.motorPesquisa > span {
+  color: #fff;
+}
+
+.displaySpan {
+  color: #e11d48;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px; 
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; 
+  list-style: none;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.riscarTarefa {
+    text-decoration: line-through;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e11d48; /* vermelho */
+  border-radius: 999px; /* pill */
+  vertical-align: middle;
+}
+
+.personal {
+  color:blue; 
+}
+
+.work {
+  color:red; 
+}
+
+.studies {
+  color: green;
+}
