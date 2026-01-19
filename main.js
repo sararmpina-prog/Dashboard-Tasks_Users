@@ -29,7 +29,7 @@ let tarefasIniciais = [
     { id: 5, titulo: "Entregar exercicios mestrado", categoria: "Work" },
     { id: 6, titulo: "Compras para casa", categoria: "Personal" },
     { id: 7, titulo: "Prenda anos da mãe", categoria: "Personal" },
-    { id: 8, titulo: "Adcionar funcionalidades ao projeto", categoria: "Studies" },
+    { id: 8, titulo: "Adicionar funcionalidades ao projeto", categoria: "Studies" },
     { id: 9, titulo: "Juntar dashboards no mesmo ficheiro", categoria: "Studies" },
 ];
 loadInitialTasks();
