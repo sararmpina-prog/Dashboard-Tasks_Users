@@ -88,13 +88,21 @@ function createSingleTask(task: Tarefa) {
             spanCategory.classList.add("workSpan")
         }
 
-    elemLista.textContent = task.titulo; 
-    elemLista.prepend(spanCategory);     
-    elemLista.appendChild(createBtnRemove(task)); 
-    elemLista.appendChild(createBtnEdit(elemLista, task)); 
-    elemLista.appendChild(createBtnToggleCheck(task)); 
+        let spanTitle = document.createElement("span") as HTMLSpanElement; 
+        spanTitle.classList.add("taskTitle"); 
+        spanTitle.textContent = task.titulo;
 
-    return elemLista; 
+        let actions = document.createElement("div") as HTMLDivElement;
+        actions.classList.add("taskActions"); 
+        actions.appendChild(createBtnRemove(task));
+        actions.appendChild(createBtnEdit(elemLista, task)); 
+        actions.appendChild(createBtnToggleCheck(task)); 
+
+        elemLista.appendChild(spanCategory); 
+        elemLista.appendChild(spanTitle); 
+        elemLista.appendChild(actions);
+
+        return elemLista; 
 }
 
 function renderTasks(list: Tarefa[]) {
