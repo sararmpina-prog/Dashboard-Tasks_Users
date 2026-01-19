@@ -60,17 +60,11 @@ function createSingleTask(task) {
         spanCategory.textContent = "Work";
         spanCategory.classList.add("workSpan");
     }
-    let spanTitle = document.createElement("span");
-    spanTitle.classList.add("taskTitle");
-    spanTitle.textContent = task.titulo;
-    let actions = document.createElement("div");
-    actions.classList.add("taskActions");
-    actions.appendChild(createBtnRemove(task));
-    actions.appendChild(createBtnEdit(elemLista, task));
-    actions.appendChild(createBtnToggleCheck(task));
-    elemLista.appendChild(spanCategory);
-    elemLista.appendChild(spanTitle);
-    elemLista.appendChild(actions);
+    elemLista.textContent = task.titulo;
+    elemLista.prepend(spanCategory);
+    elemLista.appendChild(createBtnRemove(task));
+    elemLista.appendChild(createBtnEdit(elemLista, task));
+    elemLista.appendChild(createBtnToggleCheck(task));
     return elemLista;
 }
 function renderTasks(list) {
