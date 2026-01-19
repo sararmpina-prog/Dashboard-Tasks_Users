@@ -46,10 +46,12 @@ main {
 }
 
 header {
+  width: 100%;
   display: flex;
-  gap: space-between; 
+  justify-content: flex-end; /* alinha à esquerda */
+  gap: 20px;                   
+  padding: 16px 24px;
 }
-
 
 .badge {
   background-color: wheat;
