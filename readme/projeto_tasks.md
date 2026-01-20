@@ -76,6 +76,7 @@ Esta página permite as seguintes funcionalidades:
 Para tirar todos os filtros pode-se selecionar o botão "reset all filters" ou retirar os pretendidos ao clicar (quando selecionado o filtro apresenta borda vermelha que é removida se filtro não está aplicado).
 
 Em cada utilizador, é possível: 
+- ativar toggle (permite alterar sessões, in and out)
 
 
 
