@@ -160,9 +160,10 @@ function createBtnEdit (li: HTMLLIElement, task: Tarefa) {
     let btnEdicao = document.createElement("button") as HTMLButtonElement;
     btnEdicao.textContent = "Edit"; 
 
-
-    btnEdicao.addEventListener("click", () => addInput (li, task.titulo, task.id)); 
-
+    if (task.concluida == false) {
+         btnEdicao.addEventListener("click", () => addInput (li, task.titulo, task.id)); 
+    }
+   
     return btnEdicao; 
 }
 

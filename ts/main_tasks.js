@@ -106,7 +106,9 @@ function identifyTaskChecked(numId) {
 function createBtnEdit(li, task) {
     let btnEdicao = document.createElement("button");
     btnEdicao.textContent = "Edit";
-    btnEdicao.addEventListener("click", () => addInput(li, task.titulo, task.id));
+    if (task.concluida == false) {
+        btnEdicao.addEventListener("click", () => addInput(li, task.titulo, task.id));
+    }
     return btnEdicao;
 }
 function addInput(tagLi, title, identificador) {
